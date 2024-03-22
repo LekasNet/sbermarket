@@ -151,10 +151,13 @@ class _MyHomePageState extends State<Home> {
               ],
             )
           ),
-          Container(
-            height: 600,
-            child: SingleChildScrollView(
-              child: Listing(),
+          SizedBox(height: 10,),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: SingleChildScrollView(
+                child: Listing(),
+              ),
             ),
           ),
         ],

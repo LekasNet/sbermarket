@@ -34,11 +34,95 @@ List<ProductItem> popularItems = [
     imageUrl: 'assets/images/durian.png', // Путь к вашему локальному изображению или URL
     isFavorite: false,
   ),
-  // Добавьте столько элементов, сколько вам нужно
+  ProductItem(
+    name: 'Rambutan',
+    type: 'Fruit',
+    price: '\$22.99',
+    imageUrl: 'assets/images/rambutan.png', // Путь к вашему локальному изображению или URL
+    isFavorite: true,
+  ),
+  ProductItem(
+    name: 'Durian Monty',
+    type: 'Fruit',
+    price: '\$32.99',
+    imageUrl: 'assets/images/durian.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),
+  ProductItem(
+    name: 'Rambutan',
+    type: 'Fruit',
+    price: '\$22.99',
+    imageUrl: 'assets/images/rambutan.png', // Путь к вашему локальному изображению или URL
+    isFavorite: true,
+  ),
+  ProductItem(
+    name: 'Durian Monty',
+    type: 'Fruit',
+    price: '\$32.99',
+    imageUrl: 'assets/images/durian.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),
+  ProductItem(
+    name: 'Rambutan',
+    type: 'Fruit',
+    price: '\$22.99',
+    imageUrl: 'assets/images/rambutan.png', // Путь к вашему локальному изображению или URL
+    isFavorite: true,
+  ),
+  ProductItem(
+    name: 'Durian Monty',
+    type: 'Fruit',
+    price: '\$32.99',
+    imageUrl: 'assets/images/durian.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),
+
 ];
 
 List<ProductItem> recentItems = [
   ProductItem(
+    name: 'Strawberry',
+    type: 'Fruit',
+    price: '\$18.99',
+    imageUrl: 'assets/images/strawberry.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),  ProductItem(
+    name: 'Strawberry',
+    type: 'Fruit',
+    price: '\$18.99',
+    imageUrl: 'assets/images/strawberry.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),  ProductItem(
+    name: 'Strawberry',
+    type: 'Fruit',
+    price: '\$18.99',
+    imageUrl: 'assets/images/strawberry.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),  ProductItem(
+    name: 'Strawberry',
+    type: 'Fruit',
+    price: '\$18.99',
+    imageUrl: 'assets/images/strawberry.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),  ProductItem(
+    name: 'Strawberry',
+    type: 'Fruit',
+    price: '\$18.99',
+    imageUrl: 'assets/images/strawberry.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),  ProductItem(
+    name: 'Strawberry',
+    type: 'Fruit',
+    price: '\$18.99',
+    imageUrl: 'assets/images/strawberry.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),  ProductItem(
+    name: 'Strawberry',
+    type: 'Fruit',
+    price: '\$18.99',
+    imageUrl: 'assets/images/strawberry.png', // Путь к вашему локальному изображению или URL
+    isFavorite: false,
+  ),  ProductItem(
     name: 'Strawberry',
     type: 'Fruit',
     price: '\$18.99',
