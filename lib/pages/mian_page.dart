@@ -7,6 +7,8 @@ import 'package:squircle/squircle.dart';
 import 'package:sbermarket/commons/icons.dart';
 import 'package:figma_squircle/figma_squircle.dart';
 
+import '../templates/navigation_bar.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -24,6 +26,12 @@ class _MyHomePageState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomBottomNavigationBar(
+          selectedIndex: 0,
+          onItemSelected: (index) {
+            // Обработка выбора элемента навигационной панели
+          },
+      ),
       body: Column(
         children: <Widget>[
           SizedBox(height: MediaQuery.of(context).padding.top,),

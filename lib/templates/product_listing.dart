@@ -53,8 +53,9 @@ class Listing extends StatelessWidget {
                                     const Spacer(),
                                     Text(popularItems[index].price,
                                       style: const TextStyle(
-                                        fontSize: 17,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.w700,
+                                        color: primaryColor,
                                       ),
                                     ),
                                   ],
@@ -114,12 +115,60 @@ class Listing extends StatelessWidget {
               return Column(
                 children: [
                   Card(
-                    child: ListTile(
-                      leading: Image.asset(recentItems[index].imageUrl),
-                      title: Text(recentItems[index].name),
-                      subtitle: Text(recentItems[index].type),
-                      trailing: Text(recentItems[index].price),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30))
                     ),
+                    child: Stack(
+                      children: [
+                        Column(
+                          children: [
+                            ListTile(
+                              leading: Image.asset(recentItems[index].imageUrl),
+                              title: Text(recentItems[index].name),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start, // Для выравнивания текста влево
+                                mainAxisSize: MainAxisSize.min, // Для уменьшения занимаемого пространства
+                                children: <Widget>[
+                                  Text(recentItems[index].type),
+                                  Text(recentItems[index].price, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: primaryColor),),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(
+                                  30),
+                              bottomRight: Radius.circular(
+                                  30
+                              ),
+                            ),
+                            child: Material(
+                              color: primaryColor,
+                              child: InkWell(
+                                onTap: () {
+
+                                },
+                                child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors
+                                        .white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ),
                   SizedBox(height: 10,)
                 ],
