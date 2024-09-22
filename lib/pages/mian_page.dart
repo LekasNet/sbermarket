@@ -79,7 +79,7 @@ class _MyHomePageState extends State<Home> {
                         minWidth: 20,
                         minHeight: 20,
                       ),
-                      child: Text(
+                      child: const Text(
                         '5', // сюда вставляется количество товаров в корзине
                         style: TextStyle(
                           color: Colors.white,
@@ -111,19 +111,19 @@ class _MyHomePageState extends State<Home> {
                       ),
                     ),
                     child: SearchBar(
-                      shadowColor: const MaterialStatePropertyAll(
+                      shadowColor: const WidgetStatePropertyAll(
                           Colors.transparent),
-                      backgroundColor: const MaterialStatePropertyAll(
+                      backgroundColor: const WidgetStatePropertyAll(
                           Colors.transparent),
-                      surfaceTintColor: const MaterialStatePropertyAll(
+                      surfaceTintColor: const WidgetStatePropertyAll(
                           Colors.transparent),
-                      overlayColor: const MaterialStatePropertyAll(
+                      overlayColor: const WidgetStatePropertyAll(
                           Colors.transparent),
                       leading: searchIcon,
                       hintText: 'Search item...',
-                      textStyle: const MaterialStatePropertyAll(TextStyle(
+                      textStyle: const WidgetStatePropertyAll(TextStyle(
                           fontSize: 14, fontWeight: FontWeight.w400)),
-                      padding: const MaterialStatePropertyAll(
+                      padding: const WidgetStatePropertyAll(
                           EdgeInsets.only(right: 20, left: 20)),
                     ),
                   ),

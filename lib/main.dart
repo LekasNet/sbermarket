@@ -33,11 +33,11 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xFFFFF5F5),
         filledButtonTheme: FilledButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.pressed)) {
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                    (Set<WidgetState> states) {
+                  if (states.contains(WidgetState.pressed)) {
                     return primaryColor.withOpacity(0.5);
-                  } else if (states.contains(MaterialState.disabled)) {
+                  } else if (states.contains(WidgetState.disabled)) {
                     return greyColor;
                   }
                   return primaryColor;
