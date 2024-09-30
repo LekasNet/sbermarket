@@ -14,19 +14,92 @@ class Home extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<Home> {
-  int cartItemCount = 0; // Переменная для счётчика товаров в корзине
+  int cartItemCount = 0;
 
-  void addToCart() {
+  // Функция добавления продукта
+  void addProduct(String name, String type, String price, String imageUrl) {
     setState(() {
-      cartItemCount++; // Увеличиваем счётчик на единицу
+      popularItems.add(ProductItem(
+        name: name,
+        type: type,
+        price: price,
+        imageUrl: imageUrl,
+      ));
+      cartItemCount++; // Обновляем количество товаров
     });
   }
+
+  // Выезжающее меню для добавления продукта
+  void _showAddProductMenu(BuildContext context) {
+    String productName = '';
+    String productType = '';
+    String productPrice = '';
+    String imageUrl = 'assets/images/durian.png'; // Значение по умолчанию
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                decoration: InputDecoration(labelText: 'Product Name'),
+                onChanged: (value) {
+                  productName = value;
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(labelText: 'Product Type'),
+                onChanged: (value) {
+                  productType = value;
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(labelText: 'Product Price'),
+                onChanged: (value) {
+                  productPrice = value;
+                },
+              ),
+              DropdownButton<String>(
+                value: imageUrl,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    imageUrl = newValue!;
+                  });
+                },
+                items: [
+                  DropdownMenuItem(
+                    value: 'assets/images/durian.png',
+                    child: Text('Durian'),
+                  ),
+                  DropdownMenuItem(
+                    value: 'assets/images/rambutan.png',
+                    child: Text('Rambutan'),
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  addProduct(productName, productType, productPrice, imageUrl);
+                  Navigator.pop(context); // Закрыть меню
+                },
+                child: Text('Add Product'),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          SizedBox(height: MediaQuery.of(context).padding.top,),
+          SizedBox(height: MediaQuery.of(context).padding.top),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
@@ -40,14 +113,14 @@ class _MyHomePageState extends State<Home> {
                       width: 60,
                       color: Colors.transparent,
                       child: Material(
-                          color: Color(0x80FF6961),
-                          shape: const SquircleBorder(
-                            side: BorderSide(color: Colors.transparent, width: 1.9),
-                          ),
-                          child: Container(
-                            padding: const EdgeInsets.all(7),
-                            child: Image.asset('assets/images/profile.png'),
-                          )
+                        color: Color(0x80FF6961),
+                        shape: const SquircleBorder(
+                          side: BorderSide(color: Colors.transparent, width: 1.9),
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(7),
+                          child: Image.asset('assets/images/profile.png'),
+                        ),
                       ),
                     ),
                     SizedBox(width: 10),
@@ -55,7 +128,10 @@ class _MyHomePageState extends State<Home> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Hi $name!'),
-                        Text("Let's het some item!", style: TextStyle(fontWeight: FontWeight.bold),)
+                        Text(
+                          "Let's get some item!",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ],
                     ),
                   ],
@@ -79,8 +155,8 @@ class _MyHomePageState extends State<Home> {
                         minWidth: 20,
                         minHeight: 20,
                       ),
-                      child: const Text(
-                        '5', // сюда вставляется количество товаров в корзине
+                      child: Text(
+                        '$cartItemCount',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 11,
@@ -128,10 +204,7 @@ class _MyHomePageState extends State<Home> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 24,
-                ),
-                // Filter
+                const SizedBox(width: 24),
                 Material(
                   color: primaryColor,
                   shape: SquircleBorder(
@@ -149,9 +222,9 @@ class _MyHomePageState extends State<Home> {
                   ),
                 )
               ],
-            )
+            ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10),
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -161,6 +234,11 @@ class _MyHomePageState extends State<Home> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _showAddProductMenu(context),
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
       ),
     );
   }

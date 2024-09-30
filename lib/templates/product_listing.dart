@@ -164,4 +164,3 @@ class _ListingState extends State<Listing> {
     );
   }
 }
-
